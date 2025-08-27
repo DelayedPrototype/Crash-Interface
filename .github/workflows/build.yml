@@ -26,13 +26,13 @@ jobs:
           ./gradlew build
 
       - name: Move and rename apk
-        run: mv app/build/outputs/apk/release/app-release.apk app/build/CrashInteface.apk
+        run: mv app/build/outputs/apk/release/app-release.apk app/CrashInteface.apk
 
       - name: Deploy
         uses: actions/upload-artifact@v4
         with:
           name: "crash-interface"
-          path: app/build/CrashInterface.apk
+          path: app/CrashInterface.apk
           
       
 
