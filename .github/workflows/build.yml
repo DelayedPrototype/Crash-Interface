@@ -24,9 +24,9 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-          mv app/build/outputs/apk/release/app-release.apk app/build/CrashInteface.apk
 
       - name: Deploy
+        run: mv app/build/outputs/apk/release/app-release.apk app/build/CrashInteface.apk
         uses: actions/upload-artifact@v4
         with:
           name: "crash-interface"
