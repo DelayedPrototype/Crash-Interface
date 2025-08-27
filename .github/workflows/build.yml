@@ -31,12 +31,13 @@ jobs:
           ls app/build/outputs/apk/release
           mv app/build/outputs/apk/release/app-release.apk app/CrashInteface.apk
           ls app
+          pwd
 
       - name: Deploy
         uses: actions/upload-artifact@v4
         with:
           name: "crash-interface"
           path: app/CrashInterface.apk
-          
+        run: pwd
       
 
