@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace "com.loremio.CrashInterface"
+
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.loremio.CrashInterface"
+        minSdk 29
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            def keystoreFile = rootProject.file("app/release.keystore")
+            if (keystoreFile.exists()) {
+                storeFile=keystoreFile
+                storePassword=System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias=System.getenv("ANDROID_KEYSTORE_ALIAS")
+                keyPassword=System.getenv("ANDROID_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+	
+}
