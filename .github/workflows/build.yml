@@ -27,14 +27,10 @@ jobs:
           ls app/build/outputs/apk/release
 
       - name: Move and rename apk
-        run: |
-          ls app/build/outputs/apk/release
-          mv app/build/outputs/apk/release/app-release.apk app/CrashInteface.apk
-          ls app
-          pwd
+        run: mv app/build/outputs/apk/release/app-release.apk app/build/CrashInterface.apk
 
       - name: Deploy
         uses: actions/upload-artifact@v4
         with:
           name: "crash-interface"
-          path: app/CrashInterface.apk
+          path: app/build/CrashInterface.apk
